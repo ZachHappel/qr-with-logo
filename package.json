@@ -1,0 +1,24 @@
+{
+  "name": "QRCodeLogo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZachHappel/QRCodeLogo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ZachHappel/QRCodeLogo/issues"
+  },
+  "homepage": "https://github.com/ZachHappel/QRCodeLogo#readme",
+  "description": "",
+  "dependencies": {
+    "qrcode": "^1.4.1",
+    "sharp": "^0.23.0"
+  }
+}
