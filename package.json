@@ -10,8 +10,8 @@
     "url": "git+https://github.com/ZachHappel/QRCodeLogo.git"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Zacharie Happel",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/ZachHappel/QRCodeLogo/issues"
   },
