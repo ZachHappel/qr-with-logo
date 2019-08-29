@@ -2,9 +2,12 @@ const QRlogo = require('../index.js');
 //const qrlogo_class = new QRlogo();
 
 const qr_data = {
-    name: 'Mike',
-    age: 21,
-    location: 'New York'
+    type: "connect",
+    data: {
+        name: "MikeArtegasGymPoughkeepsieNY",
+        url: "https://MikeArtegasGymPoughkeepsieNY:@ad42a1c557e7375aedaa373c0cce46db5d0a14c463ab2e13c65f11d0.staging-cloud-agents.us-east.containers.appdomain.cloud"
+    },
+    uuid: '12345678910abc'
 };
 
 const string_qr_data = JSON.stringify(qr_data);
