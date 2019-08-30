@@ -1,5 +1,5 @@
 {
-  "name": "QRCodeLogo",
+  "name": "qr-with-logo",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -7,15 +7,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ZachHappel/QRCodeLogo.git"
+    "url": "git+https://github.com/ZachHappel/qr-with-logo.git"
   },
   "keywords": [],
   "author": "Zacharie Happel",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ZachHappel/QRCodeLogo/issues"
+    "url": "https://github.com/ZachHappel/qr-with-logo/issues"
   },
-  "homepage": "https://github.com/ZachHappel/QRCodeLogo#readme",
+  "homepage": "https://github.com/ZachHappel/qr-with-logo#readme",
   "description": "",
   "dependencies": {
     "qrcode": "^1.4.1",
