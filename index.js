@@ -18,7 +18,7 @@ const ERRORS = {
 };
 
 
-async function generateQRWithLogo(embedded_data, logo_image_path, output_type, saveas_file_name, callback) {
+async function generateQRWithLogo(embedded_data, logo_image_path, qr_options, output_type, saveas_file_name, callback) {
 
     /**
      *
@@ -50,6 +50,10 @@ async function generateQRWithLogo(embedded_data, logo_image_path, output_type, s
         }
     }
 
+
+
+
+
     if (!output_type) {
         throw SyntaxError(JSON.stringify( {name: ERRORS["INSUFF_PARAMS"].name, message: "output_type" + ERRORS["INSUFF_PARAMS"].message}));
 
@@ -70,7 +74,13 @@ async function generateQRWithLogo(embedded_data, logo_image_path, output_type, s
 
 
 
-    await generateQR(embedded_data, async function (b64) {
+    if (qr_options.length == 0) {
+        qr_options = {errorCorrectionLevel: 'H'}
+    }
+
+
+
+    await generateQR(embedded_data, qr_options, async function (b64) {
 
         await saveAsPNG(b64, qr_image_path, async function () {
 
@@ -121,13 +131,28 @@ async function generateQRWithLogo(embedded_data, logo_image_path, output_type, s
 }
 
 
-async function generateQR(embedded_data, callback) {
-    try {
-        await qrcode.toDataURL(embedded_data, { errorCorrectionLevel: 'H'}, function (err, b64) {
-            if (b64) { callback(b64); }
-            else if (err) { console.log(err); }
-        });
-    } catch (err) { console.error(err) }
+async function generateQR(embedded_data, options, callback) {
+
+    if (typeof options === "object") {
+
+        try {
+            await qrcode.toDataURL(embedded_data, options, function (err, b64) {
+                if (b64) { callback(b64); }
+                else if (err) { console.log(err); }
+            });
+        } catch (err) { console.error(err) }
+
+    } else {
+
+        try {
+            await qrcode.toDataURL(embedded_data, { errorCorrectionLevel: 'H'}, function (err, b64) {
+                if (b64) { callback(b64); }
+                else if (err) { console.log(err); }
+            });
+        } catch (err) { console.error(err) }
+
+    }
+
 };
 
 
@@ -173,6 +198,7 @@ async function addLogoToQRImage(qr_image_path, logo_image_path, output_type, sav
         }
 
     } else if (output_type == "PNG") {
+
         console.log('Output: PNG');
         console.log('SaveAs: ' + saveas_file_name);
 
