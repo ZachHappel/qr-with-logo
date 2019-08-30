@@ -9,7 +9,7 @@
     "type": "git",
     "url": "git+https://github.com/ZachHappel/qr-with-logo.git"
   },
-  "keywords": [],
+  "keywords": ["qrcode", "qr", "logo", "QR code", "QR code with logo" ],
   "author": "Zacharie Happel",
   "license": "MIT",
   "bugs": {
