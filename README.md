@@ -21,7 +21,7 @@ const data = JSON.stringify({name: "Zacharie Happel",
               grade: "Senior"
 })
  
-await QRLogo.createQRWithLogo(data, "logo.png", {}, "PNG", "qrlogo.png") 
+await QRLogo.generateQRWithLogo(data, "logo.png", {}, "PNG", "qrlogo.png") 
 
 ```
 ## Base64 
@@ -34,7 +34,7 @@ const data = JSON.stringify({name: "Zacharie Happel",
               grade: "Senior"
 })
  
-await QRLogo.createQRWithLogo(data, "logo.png", {}, "Base64", "qrlogo.png", async function(b64) {
+await QRLogo.generateQRWithLogo(data, "logo.png", {}, "Base64", "qrlogo.png", async function(b64) {
               console.log("Base64: \n" + b64);
 }); 
 

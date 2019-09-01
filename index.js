@@ -114,11 +114,13 @@ async function generateQRWithLogo(embedded_data, logo_image_path, qr_options, ou
 
                 await addLogoToQRImage(qr_image_path, logo_image_path, "Base64", saveas_file_name, async function (qrlogo_b64) {
 
-                    let qrlogo_base64 = qrlogo_b64;
+                    //let qrlogo_base64 = qrlogo_b64;
+
+                    console.log("Base 64 Data: " + qrlogo_b64);
 
                     await fs.unlink(qr_image_path, async function () {
 
-                        callback(qrlogo_base64);
+                        callback(qrlogo_b64);
 
                     });
                 })
@@ -174,26 +176,51 @@ async function addLogoToQRImage(qr_image_path, logo_image_path, output_type, sav
 
     if (output_type == "Base64") {
         if (!callback) { console.log('Error: No callback provided'); }
+
         else {
-
             console.log('Output: Base64');
-            sharp(qr_image_path)
+            await sharp(qr_image_path)
                 .composite([{input: logo_image_path, gravity: 'centre' }])
-                .toBuffer((err, data, info) => async function() {
+                .toBuffer((err, data, info) => {
 
-                    async function waitForData() {
+                    if (err) {
+                        console.log("Error Converting Image Buffer to Base 64: \n"+err );
+                    }
+
+                    if (data) {
+                        let base64data = Buffer.from(data, 'binary').toString('base64');
+                        callback(base64data);  //console.log(base64data);
+                    }
+
+
+                    /*
+                    async function waitForData(cb) {
+
                         if (data) {
-                            console.log('This is data...');
-                            console.log(data);
-                            let base64data = Buffer.from(data, 'binary').toString('base64');
-                            callback(base64data);
+                            console.log('Data exists');
+                            await cb(await Buffer.from(data, 'binary').toString('base64'));
+                            //console.log('This is data...');
+                            //console.log(data);
+                            //let base64data = await Buffer.from(data, 'binary').toString('base64');
+                            //console.log("Base64 Inside AddLogoToQRImage: \n" + base64data);
+
                         } else {
                             setTimeout(() => {
                                 console.log('Waiting for data...');
+                                waitForData(async function(b64){
+                                    console.log("Done Waiting For Data: ");
+                                    callback(b64)
+                                });
                             },100)
                         }
                     }
-                    await waitForData();
+
+                    await waitForData(async function(b64){
+                      console.log("Done Waiting For Data: ");
+                      callback(b64)
+                    });
+
+                     */
                 });
         }
 
