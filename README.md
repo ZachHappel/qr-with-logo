@@ -1,6 +1,4 @@
-QRLogo
-
-QRLogo is a Node package developed to allow for the creation of QR codes with embedded logo images.
+**_qr-with-logo_** is a Node package developed to allow for the creation of QR codes with embedded logo images.
 
 
 ## Installation
@@ -56,5 +54,11 @@ const opts = {
 }; 
 
 ```
+## Example Input/Output:
+### Logo Image:
+![Logo](docs/README-images/logo.png)
+### QR Code:
+![QR](docs/README-images/qrlogo.png) 
+
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)

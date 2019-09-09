@@ -1,15 +1,21 @@
 {
   "name": "qr-with-logo",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "test/test.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ZachHappel/qr-with-logo.git"
   },
-  "keywords": ["qrcode", "qr", "logo", "QR code", "QR code with logo" ],
+  "keywords": [
+    "qrcode",
+    "qr",
+    "logo",
+    "QR code",
+    "QR code with logo"
+  ],
   "author": "Zacharie Happel",
   "license": "MIT",
   "bugs": {
