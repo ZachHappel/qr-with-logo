@@ -6,13 +6,13 @@
 Use node package manager ([npm](https://www.npmjs.com/get-npm)) to install  install QRLogo.
 
 ```bash
-npm install --save qrlogo
+npm install --save qr-with-logo
 ```
 
 ## Saving as PNG
 
 ```node
-const QRLogo = require('qrlogo');
+const QRLogo = require('qr-with-logo');
 
 const data = JSON.stringify({name: "Zacharie Happel",
               job:  "Student/Intern", 
@@ -25,7 +25,7 @@ await QRLogo.generateQRWithLogo(data, "logo.png", {}, "PNG", "qrlogo.png")
 ## Base64 
 
 ```node
-const QRLogo = require('qrlogo');
+const QRLogo = require('qr-with-logo');
 
 const data = JSON.stringify({name: "Zacharie Happel",
               job:  "Student/Intern", 
