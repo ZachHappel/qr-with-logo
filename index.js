@@ -34,7 +34,7 @@ async function generateQRWithLogo(embedded_data, logo_image_path, qr_options, ou
      */
 
 
-    let qr_image_path = "init_non_logo_qr.png";
+    let qr_image_path = `init_non_logo_qr_${new Date().getTime()}.png`;
     console.log('This is saveas_file_name: ' + saveas_file_name);
     let is_saveas_file_name_a_string = (typeof saveas_file_name == 'string');
     console.log("saveas_file_name instanceof String: " + is_saveas_file_name_a_string);
@@ -116,7 +116,7 @@ async function generateQRWithLogo(embedded_data, logo_image_path, qr_options, ou
 
                     //let qrlogo_base64 = qrlogo_b64;
 
-                    console.log("Base 64 Data: " + qrlogo_b64);
+//                    console.log("Base 64 Data: " + qrlogo_b64);
 
                     await fs.unlink(qr_image_path, async function () {
 
